@@ -1,5 +1,5 @@
 .select {
-  margin-top: 20px;
+  margin: 10px auto;
   width: 100%;
 
   > ul {
@@ -28,13 +28,13 @@
 }
 
 .community {
-  margin-top: 30px;
+  margin-top: 10px;
 
   .ul2 {
     width: 85%;
     margin: 0 auto;
     overflow: auto;
-    max-height: 470px;
+    max-height: 420px;
 
     &::-webkit-scrollbar {
       width: 8px;

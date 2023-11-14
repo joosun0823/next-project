@@ -2,7 +2,7 @@
   line-height:1.5;
   padding: 10px 50px ;
   >img{
-    margin: 30px 0 0 100px;
+    margin: 15px 0 0 60px;
   }
   .title{
     text-align: center;
@@ -20,7 +20,7 @@
     height: 220px;
     overflow-y:scroll;
     font-size: 1rem ;
-    margin: 40px 0;
+    margin: 20px 0;
     display: flex;
     // font-size: 0.9rem;
     >div:nth-of-type(2){
@@ -43,15 +43,13 @@
     background: #ffffff;
   }
   .row{
-    
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     line-height: 1.5;
     .eleTitle{
       text-align: center;
-      margin: 30px 0 10px 0;
-      
+      margin: 0px 0 10px 0;
     }
     .ele{
       width: 80px;

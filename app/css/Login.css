@@ -1,6 +1,7 @@
 .home {
+  max-width: 480px;
   background-color: #FFDF8C;
-  height: 85vh;
+  height: 100vh;
 }
 .home p {
   display: flex;
@@ -23,7 +24,7 @@
   padding: 20px;
 }
 .home .login form p {
-  margin: 20px 10px;
+  margin: 50px 10px;
 }
 .home .login form p input {
   width: 400px;
@@ -36,24 +37,21 @@
   background-color: #FF9359;
   border: none;
 }
-.home .submit {
-  margin-bottom: 30px;
+.home .login form button {
+  margin: 0px 10px;
+  width: 402px;
+  padding: 20px;
+  background-color: #F45852;
+  border: none;
+  font-family: "Cafe24Ssurround";
+  font-weight: normal;
 }
-.home .aa {
-  color: black;
-  margin: 0 10px;
-  padding: 20px 179px;
-  background-color: #FF9359;
+.home .footer {
+  position: absolute;
+  bottom: 50px;
+  margin: 0 15px;
 }
-
-.head {
-  padding: 15px 50px;
+.home .footer a {
+  color: #F45852;
+  margin: 0 20px;
 }
-
-.foot {
-  padding: 35px 50px 0;
-}
-
-.f-link {
-  display: none;
-}/*# sourceMappingURL=Login.css.map */

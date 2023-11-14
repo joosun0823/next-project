@@ -1,7 +1,6 @@
 "use client";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { ChatGPTAPI } from "chatgpt";
 import styles from "../pages/myfortune/myfortune.module.scss";
 
 const Myfortune = function () {
@@ -17,10 +16,10 @@ const Myfortune = function () {
 
     fetchData();
   }, []);
-  const sessionId = typeof window !== 'undefined' ? window.sessionStorage.getItem("id") :null ;
+  const sessionId =
+    typeof window !== "undefined" ? window.sessionStorage.getItem("id") : null;
 
   const loginUser = userId.find((member) => member.id === sessionId);
-  console.log(loginUser);
 
   useEffect(() => {
     if (!loginUser) return;
@@ -29,7 +28,6 @@ const Myfortune = function () {
       setAnswer(res.data);
     });
   }, [loginUser]);
-
 
   useEffect(() => {
     if (!loginUser) return;
@@ -49,9 +47,9 @@ const Myfortune = function () {
   }, [loginUser]);
 
   useEffect(() => {
-    if (fortuneData?.fortune === null && answer) {
+    if (answer) {
       async function updateFortune() {
-        if (!answer) return;
+        if (!loginUser || !loginUser.id) return;
         try {
           const response = await axios.put("/api/fortune", {
             id: loginUser.id,
@@ -66,44 +64,44 @@ const Myfortune = function () {
       }
       updateFortune();
     }
-  }, [fortuneData, answer]);
-
-  console.log(fortuneData?.fortune);
+  }, [answer]);
   return (
     <div className={styles.myfortuneWrap}>
-      <img src='../../imges/main_angel_cut.png' />
-      <div className={styles.title} >당신의 운세</div>
+      <img src="../../imges/main_angel_cut.png" />
+      <div className={styles.title}>당신의 운세</div>
       {fortuneData && fortuneData?.fortune !== null ? (
         <div style={{ whiteSpace: "pre-line" }}>
-          <p className={styles.fortune}> 
-           
-              <div
+          <div className={styles.fortune}>
+            <div
               dangerouslySetInnerHTML={{
-                __html: fortuneData && fortuneData.fortune ? fortuneData.fortune.replaceAll(".", ".<br>") : "",
+                __html:
+                  fortuneData && fortuneData.fortune
+                    ? fortuneData.fortune.replaceAll(".", ".<br>")
+                    : "",
               }}
-              >
+            ></div>
           </div>
-           
-
-          </p>
           <div className={styles.row}>
-            <p>
+            <div>
               <p className={styles.eleTitle}>&lt; 나의 5행 &gt;</p>
               <p className={styles.ele}>{fortuneData?.myelement}</p>
-            </p>
-            <p>
+            </div>
+            <div>
               <p className={styles.eleTitle}>&lt; 상대의 5행 &gt;</p>
               <p className={styles.ele}>{fortuneData?.yourelement}</p>
-            </p>
+            </div>
           </div>
         </div>
       ) : (
         answer && (
           <div style={{ whiteSpace: "pre-line" }}>
-            <p>{answer.response1}</p>
-            <p>{answer.response2}</p>
-            <p>{answer.response3}</p>
-           
+            <div className={styles.fortune}>
+              <p>{answer.response1}</p>
+            </div>
+            <div className={styles.row}>
+              <p className={styles.ele}>{answer.response2}</p>
+              <p className={styles.ele}>{answer.response3}</p>
+            </div>
           </div>
         )
       )}

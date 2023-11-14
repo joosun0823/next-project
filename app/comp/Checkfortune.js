@@ -20,10 +20,11 @@ function Checkfortune() {
       setMemberData(res.data);
     });
   }, []);
-  
-  const sessionId = typeof window !== 'undefined' ?  window.sessionStorage.getItem("id") : null;
+
+  const sessionId =
+    typeof window !== "undefined" ? window.sessionStorage.getItem("id") : null;
   const loginUser = memberData.find((member) => member.id === sessionId);
-  
+
   return (
     <div className={styles.container}>
       {memberData.length > 0 && (
